@@ -1,0 +1,20 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: tix-app
+build:
+  local:
+    push: false
+  artifacts:
+  - image: mrzeal025/auth
+    context: auth
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - dest: .
+          src: 'src/**/*.ts'
+deploy:
+  kubectl:
+    manifests:
+    - infra/k8s/*
