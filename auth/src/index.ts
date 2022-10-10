@@ -6,7 +6,6 @@ import { signUpRouter } from "./routes/sign-up";
 import { signInRouter } from "./routes/sign-in";
 import { signOutRouter } from "./routes/sign-out";
 import { errorHandler } from "./middleware/error-handler";
-import { NotFoundError } from "./errors/not-found-error";
 
 const server = express();
 const port = process.env.PORT || 3000;
