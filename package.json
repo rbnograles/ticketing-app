@@ -1,0 +1,20 @@
+{
+  "name": "tix-app",
+  "version": "1.0.0",
+  "description": "This project is intended to help me understand the basics of Micro-Services and have a great\r understanding of proper code workflow.",
+  "main": "index.js",
+  "scripts": {
+	  "start-server": "skaffold dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbnograles/ticketing-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbnograles/ticketing-app/issues"
+  },
+  "homepage": "https://github.com/rbnograles/ticketing-app#readme"
+}
