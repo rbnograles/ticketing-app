@@ -12,7 +12,7 @@ export const router = express.Router();
 router.post(
     "/sign-up",
     [EMAIL_VALIDATION, PASSWORD_VALIDATION],
-    (req: Request, res: Response) => {
+    async (req: Request, res: Response) => {
         // check for errors
         const errors = validationResult(req);
         // if there are any errors
