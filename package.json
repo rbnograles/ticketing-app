@@ -4,7 +4,8 @@
   "description": "This project is intended to help me understand the basics of Micro-Services and have a great\r understanding of proper code workflow.",
   "main": "index.js",
   "scripts": {
-	  "start-server": "skaffold dev"
+	  "start-server": "skaffold dev",
+    "sonar-scan": "sonar-scanner.bat -D sonar.projectKey=ticketing-system.ryan.nograles -D sonar.sources=. -D sonar.host.url=http://localhost:9000 -D sonar.login=sqp_d9a0fe10b8caffba37bf9d8f2071b0edcba9c30c"
   },
   "repository": {
     "type": "git",
