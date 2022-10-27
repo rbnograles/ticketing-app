@@ -5,7 +5,6 @@ import {
     PASSWORD_VALIDATION,
 } from "../middleware/validation";
 import { RequestValidationError } from "../errors/validation-error";
-import { DBConnectionError } from "../errors/db-conn-error";
 
 export const router = express.Router();
 
@@ -19,11 +18,6 @@ router.post(
         if (!errors.isEmpty()) {
             throw new RequestValidationError(errors.array());
         }
-
-        const { email, password } = req.body;
-
-        console.log("Creating a user...");
-        throw new DBConnectionError();
 
         res.send({});
     }
