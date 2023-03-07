@@ -6,15 +6,15 @@ build:
   local:
     push: false
   artifacts:
-  - image: mrzeal025/auth
-    context: auth
-    docker:
-      dockerfile: Dockerfile
-    sync:
-      manual:
-        - dest: .
-          src: 'src/**/*.ts'
+    - image: mrzeal025/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
 deploy:
   kubectl:
     manifests:
-    - infra/k8s/*
+      - infra/k8s/*
