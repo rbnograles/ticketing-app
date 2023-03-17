@@ -1,4 +1,5 @@
 import { Model, Document, Schema, model } from "mongoose";
+import { Password } from "../utils/password";
 
 // User Model Attributes
 interface IUserAttr {
@@ -28,6 +29,16 @@ const userSchema = new Schema<UserDoc, IUserModel>({
     type: String,
     required: true,
   },
+});
+
+// execute this whenever a save event happens
+userSchema.pre("save", async function (done) {
+  // hash only if password is newly created or has been updated
+  if (this.isModified("password")) {
+    const hashed = await Password.toHash(this.get("password"));
+    this.set("password", hashed);
+  }
+  done();
 });
 
 // Addition properties

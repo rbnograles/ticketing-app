@@ -6,6 +6,7 @@ import {
 } from "../middleware/validation";
 import { RequestValidationError } from "../errors/validation-error";
 import { UserModel } from "../models/user.model";
+import { BadRequestError } from "../errors/bad-request-error";
 
 export const router = express.Router();
 
@@ -26,8 +27,7 @@ router.post(
     const existingUser = await UserModel.findOne({ email });
 
     if (existingUser) {
-      console.log("This email is used.");
-      return res.send({});
+      throw new BadRequestError("Email is already existing");
     }
 
     const user = UserModel.build({ email, password });
